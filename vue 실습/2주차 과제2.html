@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js 기초 익히기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <!---
+        자바스크립트에서 생성자 : 객체를 생성하는 함수 
+        생성자로 사용하려면 new연산자를 사용해야 함   
+        -> vue 인스턴스 
+
+        ex) var vm = new Vue({
+            내용.....
+        });
+
+        변수 없는 방법
+        new Vue({
+            내용.....
+        })
+    -->
+
+    <div id="app">
+
+    </div>
+
+    <script>
+        //Vue 인스턴스 주요 옵션
+
+        // data: UI 상태 / 데이터를 나타냄
+        // el: Vue 인스턴스가 마운트된 요소
+        // filters: 데이터를 문자열로 포매팅
+        // methoes: 이벤트 발생 시의 동작
+        // computed: 데이터로부터 파생되는 값
+
+        new Vue({
+            template: '<p> {{ num }} <br> {{ name }} <br> {{age}} <br> {{major}} <br> {{school}} </p>',
+            data: {
+                num: '학번 : 1560036',
+                name: '이름 : 이서준',
+                age: '나이 : 25',
+                major: '학과 : 정보통신',
+                school: '학교 : 목원대학교'
+            }
+        }).$mount('#app')
+    </script>
+
+    <style>
+
+    </style>
+
+</body>
+
+</html>

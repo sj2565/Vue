@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        #list {
+            width: 400px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        
+        #list td {
+            border: 1px solid black;
+            text-align: center;
+        }
+        
+        #list th {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <table id="list">
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>전화번호</th>
+                <th>주소</th>
+                <th>인덱스번호</th>
+            </tr>
+            <template v-for="(contact, index) in contacts" :key="contact.no">
+                    <tr>
+                        <td>{{contact.no}}</td>
+                        <td>{{contact.name}}</td>
+                        <td>{{contact.tel}}</td>
+                        <td>{{contact.address}}</td>
+                        <td>
+                        <center> {{index}} </center>
+                        </td>
+                    </tr>
+
+                    <tr class="divider" v-if="index % 5 === 4">
+                        <td colspan="5"></td>
+                    </tr>
+            </template>
+        </table>
+        <h2>
+            <center> {{pageno}} </center>
+        </h2>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                "pageno": 1,
+                "pagesize": 10,
+                "totalcount": 100,
+                "contacts": [{
+                    "no": 100,
+                    "name": "설현",
+                    "tel": "010-1234-5678",
+                    "address": " 서울"
+                }, {
+                    "no": 99,
+                    "name": "혜리",
+                    "tel": "010-1235-5679",
+                    "address": " 경기"
+                }, {
+                    "no": 98,
+                    "name": "은지",
+                    "tel": "010-1236-5670",
+                    "address": " 구미"
+                }, {
+                    "no": 97,
+                    "name": "보경",
+                    "tel": "010-1237-5671",
+                    "address": " 부산"
+                }, {
+                    "no": 96,
+                    "name": "사나",
+                    "tel": "010-1238-5672",
+                    "address": " 인천"
+                }, {
+                    "no": 95,
+                    "name": "모모",
+                    "tel": "010-1239-5673",
+                    "address": " 대전"
+                }, {
+                    "no": 94,
+                    "name": "나연",
+                    "tel": "010-1230-5674",
+                    "address": " 제주"
+                }, {
+                    "no": 93,
+                    "name": "쯔위",
+                    "tel": "010-1231-5675",
+                    "address": " 양구"
+                }, {
+                    "no": 92,
+                    "name": "정연",
+                    "tel": "010-1232-5676",
+                    "address": " 일산"
+                }, {
+                    "no": 91,
+                    "name": "민주",
+                    "tel": "010-0000-0000",
+                    "address": " 원주"
+                }]
+            }
+        })
+    </script>
+</body>
+
+</html>

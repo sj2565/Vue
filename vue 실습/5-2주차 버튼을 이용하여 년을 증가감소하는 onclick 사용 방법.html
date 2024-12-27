@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        {{year}}
+        <br><br>
+        <button v-on:click="plus"> yaer 증가 </button>
+        <button @click="minus"> yaer 감소 </button>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                year: 2020
+            },
+            methods: {
+                plus: function() {
+                    this.year++;
+                },
+                minus() {
+                    this.year--;
+                }
+            },
+        })
+    </script>
+
+
+</body>
+
+</html>

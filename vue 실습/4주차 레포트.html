@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js 데이터와 메소드</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+
+            바인딩 (v-bind) - 데이터를 연결하는데 서버를 거치지 않고 view 영역에서 처리함
+            : 사용 방법 => 단방향 바인딩, 양방향 바인딩
+            : 사용 => v-bind: ' '
+
+            v-bind를 주로 사용할 수 있는 대표적인 속성
+            1. 이미지 데이터 연결 : v-bind: src
+            2. 링크를 통한 연결 : v-bind: href
+            3. 스타일시트 연결 : v-bind: class, v-bind: style
+            4. 키를 통한 연결 : v-bind: key
+        -->
+
+    <div id="app">
+        count = {{count}}
+        <br>
+        <br>
+
+        <img :src="getImg('cat')">
+
+    </div>
+
+    <script>
+        new Vue({ // var app1 = new Vue({ 로 써도 됨
+            el: " #app ",
+            data: {
+                count: 1,
+                abc: '.png'
+            },
+            methods: {
+                getImg(title) {
+                    return title + this.abc;
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

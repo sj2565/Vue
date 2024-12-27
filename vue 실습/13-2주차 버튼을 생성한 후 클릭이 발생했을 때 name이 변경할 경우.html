@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- Vue 인스턴스 여러개 생성 -->
+
+    <div id="app">
+        {{name}}
+        <button @click='changeTest()'> Click </button>
+        <!-- <button @click='changeTest()'> Click2 </button> -->
+        <p>
+    </div>
+
+    <div id="app1">
+        {{name}}
+        <button @click='changeTest()'> Click </button>
+        <p>
+    </div>
+
+    <div id="app2">
+        {{name}}
+        <button @click='changeTest()'> Click </button>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name: '안녕하세요'
+            },
+            methods: {
+                changeTest() {
+                    this.name = '오랜만에 뵙겠습니다'
+                }
+            }
+        })
+
+        new Vue({
+            el: '#app1',
+            data: {
+                name: '안녕하세요!'
+            },
+            methods: {
+                changeTest() {
+                    this.name = "오랜만에 뵙겠습니다!!!"
+                }
+            }
+        })
+
+        new Vue({
+            el: '#app2',
+            data: {
+                name: '안녕하세요!!!'
+            },
+            methods: {
+                changeTest() {
+                    this.name = '오랜만에 뵙겠습니다!!!!!'
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

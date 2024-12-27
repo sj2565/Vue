@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+        .red {
+            color: red;
+        }
+        
+        .bold {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <div>
+            <h3>Hello</h3>
+        </div>
+
+        <div :style="{color: red, fontSize: size}">
+            <h3>Hello</h3>
+        </div>
+
+        <br><br>
+        <button @click="update()">click</button>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                red: 'red',
+                size: '30px'
+            },
+            methods: {
+                update() {
+                    this.isRed = !this.isRed;
+                    this.isBold = !this.isBold;
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

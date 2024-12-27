@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js 데이터와 메소드</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <!-- 3단계: 브라우저에 나타내기 -->
+        {{nextYear()}}
+        <!-- 함수는 괄호를 넣어줘야함-->
+        <br> {{beforeYear()}}
+
+    </div>
+
+    <script>
+        // vue 객체 생성
+        new Vue({
+            el: '#app',
+            data: {
+                department: '정보통신융합공학부',
+                person: {
+                    name: '홍길동',
+                    age: 25,
+                    content: '첫 번째 Vue.js 앱입니다.'
+                }
+            },
+            // 1단계 : methods 프로퍼티 생성
+            methods: {
+                // 메소드 명: function() {}
+                nextYear: function() {
+                    // 2단계 : return문 작성
+                    return this.person.name + '은 내년에' + (this.person.age + 1) + '살입니다.';
+                },
+                beforeYear() {
+                    return this.person.name + '은 내년에' + (this.person.age - 1) + '살입니다.';
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

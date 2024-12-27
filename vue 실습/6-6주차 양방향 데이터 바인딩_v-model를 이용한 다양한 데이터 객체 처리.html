@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6-2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id='app'>
+        <div>
+            <strong> 이름 : </strong>
+            <input v-model="name.firstName" />
+        </div>
+        <br>
+        <div>
+            <strong> 성 : </strong>
+            <input v-model="name.lastName" />
+        </div>
+        <br>
+        <div>
+            <strong> 주소 : </strong>
+            <input v-model="name.address" />
+        </div>
+        <br>
+        <div>
+            <strong> 도시 : </strong>
+            <input v-model="name.city" />
+        </div>
+        <br>
+        <div>
+            <strong> 우편번호 : </strong>
+            <input v-model="name.postNumber" />
+        </div>
+        <br>
+        <div>
+            <strong> 폰번호 : </strong>
+            <input v-model="name.callNumber" />
+        </div>
+        <br>
+        <br>
+        <div>
+            이름 : {{name.firstName}}
+            <br> 성 : {{name.lastName}}
+            <br> 주소 : {{name.address}}
+            <br> 도시 : {{name.city}}
+            <br> 우편번호 : {{name.postNumber}}
+            <br> 폰번호 : {{name.callNumber}}
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name: {
+                    firstName: '',
+                    lastName: '',
+                    address: '',
+                    city: '',
+                    postNumber: '',
+                    callNumber: ''
+                }
+            },
+
+            methods: {
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>

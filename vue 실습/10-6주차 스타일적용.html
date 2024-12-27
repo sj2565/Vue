@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+        .test {
+            background-color: aqua;
+            color: brown;
+            border: sold 1px black;
+        }
+        
+        .over {
+            background-color: yellow;
+            width: 300px;
+            height: 100px;
+        }
+    </style>
+    <!--
+    케밥 표기법           카멜 표기법
+    font-size            fontsize
+    background-color     backgroundcolor
+    지금 <style>에 쓰인건 적용 안됨
+    -->
+</head>
+
+<body>
+
+    <div id="app">
+        <div>
+            <button :style='style1' @mouseover.stop="overEvent" @mouseout.stop="outEvent"> <h3>테스트</h3></button><br>
+        </div>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                style1: {
+                    backgroundcolor: "aqua",
+                    border: "sold 1px gray",
+                    width: "100px",
+                    textalign: "center"
+                }
+            },
+            methods: {
+                overEvent() {
+                    this.style1.backgroundcolor = "puple"
+                    this.style1.color = "yellow"
+                },
+                outEvent() {
+                    this.style1.backgroundcolor = "red"
+                    this.style1.color = "black"
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

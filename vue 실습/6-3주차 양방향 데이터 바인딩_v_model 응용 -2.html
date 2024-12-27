@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6-2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id='app'>
+
+        <input type="text" v-model="name" placeholder="이름을 입력하세요" />
+
+        <!-- <input type="text" v-model="name" :value="init" /> -->
+
+        <br><br> 입력한 이름 :
+        <h2 v-html="name"> </h2>
+
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    // init: '이름을 입력하세요',
+                    name: ' '
+                },
+
+                methods: {
+
+                }
+            })
+        </script>
+
+</body>
+
+</html>

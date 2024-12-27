@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<!-- 
+    컴포넌트 장점과 주의할 점
+    1. 재사용성이 향상되므로 개발 효율성이 좋아진다.
+    2. 이미 사용하는 컴포넌트를 재사용하므로 품질이 보장된다.
+    3. 적절히 분할한 컴포넌트가 느슨하게 결합하므로 유지 보수성이 향상된다.
+    4. 캡슐화를 통해 개발 작업에서 신경 써야 할 부분을 최소한으로 제한 할 수 있다.
+-->
+
+<body>
+
+    <div id='app'>
+        <!-- {{name}}
+        <button @click="changeTest"> Click </button>
+
+        <hr> -->
+        <my-component></my-component>
+
+    </div>
+    <hr>
+
+    <div id='app-1'>
+        <!-- {{name}}
+        <button @click="changeTest"> Click </button> -->
+
+        <my-component></my-component>
+
+    </div>
+
+    <script>
+        // Vue 컴포넌트 전역 등록
+        Vue.component('my-component', {
+            template: `<div> {{name}}                 
+        <button @click="changeTest"> Click </button> </div>`, // 작은따음표 '가 아닌 `사용, 여러개의 태그는 상위태그 하나로 묶어야 나옴 <div> 태그로 묶음
+
+            data() {
+                return {
+                    name: '안녕하세요~~'
+                }
+            },
+            methods: {
+                changeTest() {
+                    this.name = "오랜만에 뵙겠습니다~~"
+                }
+            }
+        })
+
+        const app = new Vue({
+            el: '#app',
+            //data: {
+            //    name: '안녕하세요'
+            //},
+            //methods: {
+            //    changeTest() {
+            //        this.name = "오랜만에 뵙겠습니다"
+            //    }
+            //}
+        })
+
+        const app1 = new Vue({
+            el: '#app-1',
+            //data: {
+            //    name: '안녕하세요!!!'
+            //},
+            //methods: {
+            //    changeTest() {
+            //        this.name = "오랜만에 뵙겠습니다!!!"
+            //    }
+            // }
+        })
+    </script>
+
+</body>
+
+</html>

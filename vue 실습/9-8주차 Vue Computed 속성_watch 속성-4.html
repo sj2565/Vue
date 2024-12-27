@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<!-- 
+    watch 속성 정의
+
+    watch : function(new_value, old_value){
+        console.log('new: %s, old: %s', new_value, old_value);
+    }
+-->
+
+<body>
+
+    <div id="app">
+        <span>
+            {{a}}
+        </span>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                b: 4
+            },
+            methods: {
+
+            },
+            computed: {
+
+            },
+            watch: {
+                b: { // handelr 속성 : 상태가 변경됐을 때 호출량 함수를 설정
+                    handler: function(val, oldVal) {
+                        console.log(val);
+                        console.log(oldVal);
+                    }, // deep 속성 :  상태 값의 내부까지 들여다보겠다는 의미
+                    immediate: true
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

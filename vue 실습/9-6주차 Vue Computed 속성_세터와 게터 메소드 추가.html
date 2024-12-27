@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <br> {{fullName}}
+        <br>
+        <button @click="changeMessage"> Click </button>
+        <br>
+
+        <br> {{fullName}}
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                firstName: '이',
+                lastName: '서준'
+            },
+            methods: {
+                changeMessage() {
+                    this.firstName = '가'
+                    this.lastName = '나다'
+                }
+            },
+            computed: {
+                fullName: {
+                    get: function() {
+                        return this.firstName + ' ' + this.lastName
+                    },
+                    set: function(newValue) {
+                        var name = newValue.split('') // name[0] = '이', name[1] = '서', name[2] = '준'
+                        this.firstName = name[0]
+                        this.lastName = name[name.length - 1]
+                    }
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

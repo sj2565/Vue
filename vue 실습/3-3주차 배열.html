@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js 데이터와 메소드</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <p>
+            {{items[2].price}}
+        </p>
+    </div>
+
+    <script>
+        // Vue 객체 생성
+
+        var items = [{
+            name: '연필',
+            price: 300,
+            quantity: 1
+        }, {
+            name: '공책',
+            price: 400,
+            quantity: 2
+        }, {
+            name: '지우개',
+            price: 100,
+            quantity: 0
+        }]
+
+        new Vue({
+            el: '#app',
+            data: // data 프로퍼티
+            {
+                items: items
+            }
+
+        })
+    </script>
+
+</body>
+
+</html>

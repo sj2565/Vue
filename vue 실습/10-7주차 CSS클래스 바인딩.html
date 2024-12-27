@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style type="text/css">
+    .test {
+            background-color: aqua;
+            color: brown;
+            border: sold 1px black;
+        }
+        
+        .over {
+            background-color: yellow;
+            width: 300px;
+            height: 100px;
+        }
+        
+        span.active {
+            border: solid 5px blue;
+        }
+        
+        span.text-danger {
+            color: red;
+        }
+    }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="app">
+        <div>
+            <span v-bind:class="classObject"> 한번에 Obeject 값이 적용 </span>
+        </div>
+
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    isActive: true,
+                    Error: null
+                },
+
+                computed: {
+                    classObject: function() {
+                        return {
+                            active: this.isActive && !this.Error,
+                            'text-danger': this.Error && this.Error.type == 'fatal'
+                        }
+                    }
+                }
+            })
+        </script>
+
+</body>
+
+</html>

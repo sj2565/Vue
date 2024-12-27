@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- Vue 인스턴스 여러개 생성 -->
+
+    <div id="app">
+        {{name}}
+        <p>
+    </div>
+
+    <div id="app1">
+        {{name}}
+        <p>
+    </div>
+
+    <div id="app2">
+        {{name}}
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name: '안녕하세요'
+            }
+        })
+
+        new Vue({
+            el: '#app1',
+            data: {
+                name: '안녕하세요!'
+            }
+        })
+
+        new Vue({
+            el: '#app2',
+            data: {
+                name: '안녕하세요!!!'
+            }
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style type="text/css">
+    .test {
+            background-color: aqua;
+            color: brown;
+            border: sold 1px black;
+        }
+        
+        .over {
+            background-color: yellow;
+            width: 300px;
+            height: 100px;
+        }
+        
+        span.active {
+            border: solid 5px magenta;
+        }
+        
+        span.text-danger {
+            color: red;
+        }
+    }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="app">
+        <div v-bind:style="styleObject2">
+            <!--    v-bind:style= ["basesStyles, overridingStyles"]  -->
+            TEST
+        </div>
+
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    styleObject: {
+                        color: 'blue',
+                        fontSize: '50px'
+                    },
+                    basesStyles: {
+                        color: 'magenta',
+                        fontSize: '10px',
+                        backgroundcolor: 'yellow'
+                    },
+                    overridingStyles: {
+                        color: 'gray',
+                        fontSize: '100px'
+                    } // 나중에 사용된 속성값만 적용됨 (overridingStyles만 적용)
+                },
+                computed: {
+                    styleObject2() {
+                        return {
+                            'margin-before': '20em',
+                            background: 'green'
+                        }
+                    }
+                }
+            })
+        </script>
+</body>
+
+</html>

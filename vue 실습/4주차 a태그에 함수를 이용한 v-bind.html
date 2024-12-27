@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js 데이터와 메소드</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+
+        {{nextYear('안녕하세요.')}}
+        <br> {{beforeYear('안녕하십니까')}}
+
+        <br> <br> 또 다른 beforeYear
+        <br> {{otherMethod2('안녕')}}
+
+        <br> <br> 또 다른 nextyear
+        <br> {{otherMethod1('안녕하세요')}}
+
+        <br> 이름 : <input :type='type1' :value='inputData'> 나이 : <input :type="type2" :value='inputData2'>
+        <br>
+        <br>
+        <!-- 3단계: link라는 변수 대신에 getLink() 함수를 사용함 -->
+        <a :href='getLink()'> 스마트웹디자인 실습 - 구글(Google) </a>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                department: '정보통신융합공학부',
+                person: {
+                    name: '홍길동',
+                    age: 25,
+                    content: '첫 번째 Vue.js 앱입니다.'
+                },
+                inputData: '이서준',
+                type1: 'text',
+                inputData2: '25',
+                type2: 'number',
+                // 1단계: link 주소 생성
+                link: 'https://www.google.co.kr'
+            },
+            methods: {
+
+                // 2단계: getLink() 함수 생성
+                getLink: function() { // function 안써도 되고 써도 됨
+                    return this.link;
+                },
+
+                nextYear: function(greeting) {
+                    return greeting + "~~~~! " + this.person.name + "님 " + this.person.name + '님의 나이는 내년에' + (this.person.age + 1) + '살입니다.';
+                },
+                beforeYear(greeting3) {
+                    return greeting3 + "~~! " + this.person.name + "님 " + this.person.name + "님의 나이는 전년에" + (this.person.age - 1) + '살입니다.';
+                },
+                otherMethod1: function(greeting2) {
+                    return this.nextYear(greeting2);
+                },
+                otherMethod2: function(greeting4) {
+                    return this.beforeYear(greeting4);
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

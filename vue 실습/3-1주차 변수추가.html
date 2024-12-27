@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 데이터와 메소드</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <h2>
+            {{university}}
+            <br> {{department}}
+        </h2>
+    </div>
+
+    <script>
+        // Vue 객체 생성
+        new Vue({
+            el: '#app',
+            data: {
+                university: '목원목원대학교',
+                department: '정보통신융합공학부',
+            }
+        })
+    </script>
+
+</body>
+
+</html>

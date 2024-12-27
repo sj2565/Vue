@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6-2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id='app'>
+        <form v-on:submit.prevent="submit">
+            <input type="text" v-model="text">
+            <br><br> {{text}}
+            <br><br> <button type="submit"> submit </button>
+        </form>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                year: 2020,
+                text: '이서준'
+            },
+            methods: {
+                plus: function() {
+                    this.year++;
+                },
+                minus: function() {
+                    this.year--;
+                },
+                submit: function() {
+                    alert('submit 버튼을 클릭했네요');
+                    console.log('hello');
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

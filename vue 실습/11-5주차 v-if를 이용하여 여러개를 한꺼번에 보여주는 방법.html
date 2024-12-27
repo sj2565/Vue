@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<!-- <img v-show = "amount < 0 " src="error.png"
+                // 참이면 화면에 표시, 거짓이면 표시하지 않음
+            <p v-show="인자"> 
+                // 참이면 화면에 표시, 거짓이면 표시하지 않음 -->
+
+<body>
+
+    <div id="app">
+        <!--
+        <template v-if="id==1">
+           <span> 값은 </span>
+           <span> 1입니다 </span>
+        </template>
+
+        <template v-else-if="id==2">
+            <span> 값은 </span>
+            <span> 2입니다 </span>
+        </template>
+
+        <template v-else>
+            <span> 값은 </span>
+            <span> 1또는 2입니다 </span>
+        </template> -->
+
+        <div v-show="show">
+            <h2> Yes </h2>
+        </div>
+
+        <button @click="toggleShow()"> Toggle </button>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                show: false,
+                id: 2
+            },
+            methods: {
+                toggleShow() {
+                    this.show = !this.show;
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

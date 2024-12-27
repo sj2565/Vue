@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>끝말잇기</title>
+    <!-- 홈페이지 타이틀 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 제공되는 CDM을 사용 -->
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- 이런식으로 바꾸어도 가능하다.
+            <div>끝말잇기</div>
+    <br>
+    <div>{{word}}</div>
+    <form v-on:submit="onSubmitForm">
+      <input type="text" v-model="value" ref="answer">
+      <button type="submit">입력</button>
+    </form>
+    <div>{{result}}</div> -->
+
+        <!-- 중복을 제거하기 위해 컴포넌트를 사용해서 간단하게 구현
+            캡슐화를 통해 개발 작업에서 신경 써야 할 부분을 최소한으로 제한 할 수 있다.
+            컴포넌트를 사용하지 않을 시 코드가 길어지고 데이터 값도 각각
+            다르게 넣어야 된다. -->
+        <word-relay start-word="휴지"></word-relay>
+        <word-relay start-word="오이"></word-relay>
+        <word-relay start-word="성공"></word-relay>
+    </div>
+
+    <script>
+        //컴포넌트는 인스턴스보다는 위에, 스크립트는 div#app보다는 아래에
+        Vue.component("word-relay", { // 전역 컴포넌트, Vue 컴포넌트 이름
+            template:
+
+            // 작은따음표 '가 아닌 `(backtick)을 이용해서 작성, 여러개의 태그는 상위태그 하나로 묶어야 나옴 <div> 태그로 묶음
+            // input을 포커스 해주기위 해 ref를 answer로 이름을 지어줌.    
+                `      
+      <div>        
+        <div> <h2>끝말잇기</h2></div>
+        <br>
+        <div>{{word}}</div>
+        <form v-on:submit="onSubmitForm">
+          <input type="text" v-model="value" ref="answer">
+          <button type="submit">입력</button>
+        </form>
+        <div>{{result}}</div>
+      </div>
+      `,
+            // 컴포넌트에서는 데이터를 함수로 만들어줘야한다.
+            // 여러번 사용되는 걸 전재로 하기에 데이터가 각각 컴포넌트마다 달라야 한다. => 데이터를 분리
+            props: ['start-word'],
+            data() {
+                return {
+                    word: this.startWord, // 첫 단어
+                    result: '', // 정답인지 아닌지 판단
+                    value: '' // input 값
+                }
+            },
+            methods: {
+                onSubmitForm(e) {
+                    e.preventDefault();
+                    if (this.word[this.word.length - 1] === this.value[0]) { // 조건문을 사용해서 word.length - 1 뒷 글자와 value[0](첫번째 글자) 일치하는지 판단한다.
+                        this.result = '정답입니다!'; // 일치할 시 정답입니다 출력.
+                        this.word = this.value; // this.value를 다시 this.word로 보내줘서 즉 정답이었던 단어를 제시어로 다시 보내서 끝말잇기 작업을 한다.
+                    } else {
+                        this.result = '틀렸습니다!'; // 불일치할 시 틀렸습니다 출력.
+                    }
+                    this.value = ''; // input칸 비워주기
+                    this.$refs.answer.focus(); // $refs로 접근 가능하게 한다.
+                }
+            }
+        });
+    </script>
+    <script>
+        const app = new Vue({ // Vue한테 태그 통제권을 넘긴다.
+            el: '#app'
+        });
+    </script>
+</body>
+
+</html>

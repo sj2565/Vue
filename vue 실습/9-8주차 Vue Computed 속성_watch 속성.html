@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<!-- 
+    watch 속성 정의
+
+    watch : function(new_value, old_value){
+        console.log('new: %s, old: %s', new_value, old_value);
+    }
+-->
+
+<body>
+
+    <div id="app">
+        <span>
+            {{a}}
+        </span>
+
+        <br>
+
+        <br>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                a: 2
+            },
+            methods: {
+
+            },
+            computed: {
+
+            },
+            watch: {
+                a: function(newVal, oldVal) {
+                    console.log('new: %s, old: %s', newVal, oldVal)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

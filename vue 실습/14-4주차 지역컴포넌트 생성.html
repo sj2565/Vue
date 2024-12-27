@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id='app'>
+        <my-component></my-component>
+    </div>
+
+    <script>
+        const H = {
+            template: `<div> good </div>`
+        }
+
+        const HelloWorld = {
+            template: `<div> 안녕 </div>`
+        }
+
+        const SampleButton = {
+            components: {
+                'Hello-world': HelloWorld
+            },
+            components: {
+                'aao': H
+            },
+            template: `<div>
+                            {{name}}<br>
+                            <aao></aao> <br>
+                            <Hello-world></Hello-world>
+                            <button @click="changeTest"> Click </button>
+                        </div>`,
+            data() {
+                return {
+                    name: '안녕하세요'
+                }
+            },
+            methods: {
+                changeTest() {
+                    this.name = "오랜만에 뵙겠습니다"
+                }
+            }
+        }
+
+        const app = new Vue({
+            el: '#app',
+            components: {
+                'my-component': SampleButton
+            }
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            {{people[0].name}} {{people[0].age}} {{0}}
+        </div>
+        <div>
+            {{people[1].name}} {{people[1].age}} {{1}}
+        </div>
+        <div>
+            {{people[2].name}} {{people[2].age}} {{2}}
+        </div>
+        <div>
+            {{people[3].name}} {{people[3].age}} {{3}}
+        </div>
+        <div>
+            {{people[4].name}} {{people[4].age}} {{4}}
+        </div>
+
+        <hr>
+        <!--
+        <div v-for="person in people">
+            {{person.name}} {{person.age}}
+        </div>
+        -->
+
+        <div v-for="(person, index) in people">
+            {{person.name}} {{person.age}} {{index}}
+        </div>
+    </div>
+    <!-- 
+        v-for 디렉티브
+        정의 : 자바스크립트 배열과 객체를 템플릿에 반복해 출력할 때 유일하게 사용할 수 있는 디렉티브
+        특징 : 속성값으로 단일 자바스크립 표현식을 받는다
+        표현식 : 식 v-for="<반복 변수 이름> in <배열 이름>
+                ex) <div v-for="poerson in people"
+                    {{person.name}} {{person.age}}
+                    </div>
+    -->
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                people: [{
+                    name: 'a',
+                    age: 20
+                }, {
+                    name: 'b',
+                    age: 21
+                }, {
+                    name: 'c',
+                    age: 22
+                }, {
+                    name: 'd',
+                    age: 23
+                }, {
+                    name: 'e',
+                    age: 24
+                }]
+            }
+        })
+    </script>
+</body>
+
+</html>
